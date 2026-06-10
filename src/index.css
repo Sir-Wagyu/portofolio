@@ -1,0 +1,331 @@
+/* Import Plus Jakarta Sans Font */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tailwind CSS v4 Theme Configuration */
+@theme {
+   /* Custom Font Family */
+   --font-family-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+
+   /* Custom Animations */
+   --animate-float: float 3s ease-in-out infinite;
+   --animate-fade-in-up: fade-in-up 0.6s ease-out;
+
+   /* Custom Dark Mode */
+   --color-dark-primary: #60a5fa;
+   --color-dark-primary-hover: #3b82f6;
+   --color-dark-primary-focus: #1d4ed8;
+   --color-dark-secondary: #94a3b8;
+   --color-dark-secondary-hover: #64748b;
+   --color-dark-secondary-active: #475569;
+   --color-dark-secondary-focus: #334155;
+   --color-dark-background: #0f172a;
+   --color-dark-surface: #1e293b;
+   --color-dark-primary-text: #f1f5f9;
+   --color-dark-secondary-text: #cbd5e1;
+   --color-dark-border: #334155;
+   --color-dark-accent: #34d399;
+   --color-dark-accent-hover: #10b981;
+   --color-dark-accent-active: #059669;
+
+   /* Custom Light Mode */
+   --color-light-primary: #3b82f6;
+   --color-light-primary-hover: #2563eb;
+   --color-light-primary-active: #1d4ed8;
+   --color-light-primary-focus: #1e40af;
+   --color-light-secondary: #64748b;
+   --color-light-secondary-hover: #475569;
+   --color-light-secondary-active: #334155;
+   --color-light-secondary-focus: #1e293b;
+   --color-light-background: #f9fafb;
+   --color-light-surface: #ffffff;
+   --color-light-primary-text: #0f172a;
+   --color-light-secondary-text: #334155;
+   --color-light-border: #e5e7eb;
+   --color-light-accent: #10b981;
+   --color-light-accent-hover: #059669;
+   --color-light-accent-active: #047857;
+}
+
+/* Custom Keyframes */
+@keyframes float {
+   0%,
+   100% {
+      transform: translateY(0px);
+   }
+   50% {
+      transform: translateY(-10px);
+   }
+}
+
+@keyframes fade-in-up {
+   from {
+      opacity: 0;
+      transform: translateY(30px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Custom Utilities */
+@layer utilities {
+   .font-jakarta {
+      font-family: var(--font-family-jakarta);
+   }
+
+   .animate-float {
+      animation: var(--animate-float);
+   }
+
+   .animate-fade-in-up {
+      animation: var(--animate-fade-in-up);
+   }
+}
+
+/* Base Styles */
+@layer base {
+   * {
+      transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+   }
+
+   html {
+      scroll-behavior: smooth;
+      color-scheme: light;
+   }
+
+   html.dark {
+      color-scheme: dark;
+   }
+
+   body {
+      font-family: var(--font-family-jakarta);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+   }
+
+   /* Custom Scrollbar */
+   ::-webkit-scrollbar {
+      width: 8px;
+   }
+
+   ::-webkit-scrollbar-track {
+      background-color: #f3f4f6;
+   }
+
+   .dark ::-webkit-scrollbar-track {
+      background-color: #1f2937;
+   }
+
+   ::-webkit-scrollbar-thumb {
+      background-color: #9ca3af;
+      border-radius: 6px;
+   }
+
+   .dark ::-webkit-scrollbar-thumb {
+      background-color: #4b5563;
+   }
+
+   ::-webkit-scrollbar-thumb:hover {
+      background-color: #3b82f6;
+   }
+
+   .dark ::-webkit-scrollbar-thumb:hover {
+      background-color: #60a5fa;
+   }
+
+   /* Selection Styling */
+   ::selection {
+      background-color: #3b82f6;
+      color: white;
+   }
+
+   .dark ::selection {
+      background-color: #60a5fa;
+      color: #111827;
+   }
+
+   /* Focus Styles */
+   :focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px rgba(59, 130, 246, 0.3);
+   }
+
+   .dark :focus-visible {
+      box-shadow: 0 0 0 2px #60a5fa, 0 0 0 4px rgba(96, 165, 250, 0.3);
+   }
+
+   /* Typing Animation Styles */
+   .typed-cursor {
+      font-weight: 100;
+      color: #3b82f6;
+      animation: typedjsBlink 0.7s infinite;
+   }
+
+   .dark .typed-cursor {
+      color: #60a5fa;
+   }
+
+   @keyframes typedjsBlink {
+      50% {
+         opacity: 0;
+      }
+   }
+
+   /* Mobile Project Card Improvements */
+   @media (max-width: 768px) {
+      .project-card-overlay {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 90%);
+      }
+
+      .project-card-overlay:hover,
+      .project-card-overlay:active {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 90%);
+      }
+   }
+
+   /* Touch device optimizations */
+   @media (hover: none) and (pointer: coarse) {
+      .group:hover .group-hover\:opacity-100 {
+         opacity: 1;
+      }
+
+      .group:hover .group-hover\:bottom-1\/2 {
+         bottom: 50%;
+      }
+   }
+
+   /* AOS Integration Styles */
+   [data-aos] {
+      pointer-events: none;
+   }
+
+   [data-aos].aos-animate {
+      pointer-events: auto;
+   }
+
+   /* Custom transition enhancements for AOS */
+   [data-aos="fade-up"] {
+      transform: translate3d(0, 40px, 0);
+   }
+
+   [data-aos="fade-down"] {
+      transform: translate3d(0, -40px, 0);
+   }
+
+   [data-aos="zoom-in"] {
+      transform: scale(0.6);
+   }
+
+   [data-aos="flip-up"] {
+      transform: perspective(400px) rotateX(-90deg);
+   }
+
+   [data-aos="slide-up"] {
+      transform: translate3d(0, 100px, 0);
+   }
+
+   [data-aos="rotate-in"] {
+      transform: rotate(180deg);
+   }
+
+   /* Additional AOS custom animations */
+   [data-aos="fade-right"] {
+      transform: translate3d(-100px, 0, 0);
+   }
+
+   [data-aos="fade-left"] {
+      transform: translate3d(100px, 0, 0);
+   }
+
+   /* Enhanced section transitions */
+   .section-transition {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+
+   /* Scroll-triggered animations enhancement */
+   .aos-animate {
+      transition-delay: 0s !important;
+   }
+
+   /* Staggered animation utilities */
+   .stagger-animation > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+   }
+
+   .stagger-animation.aos-animate > * {
+      opacity: 1;
+      transform: translateY(0);
+   }
+
+   .stagger-animation > *:nth-child(1) {
+      transition-delay: 0.1s;
+   }
+   .stagger-animation > *:nth-child(2) {
+      transition-delay: 0.2s;
+   }
+   .stagger-animation > *:nth-child(3) {
+      transition-delay: 0.3s;
+   }
+   .stagger-animation > *:nth-child(4) {
+      transition-delay: 0.4s;
+   }
+   .stagger-animation > *:nth-child(5) {
+      transition-delay: 0.5s;
+   }
+
+   /* Smooth page transitions */
+   .page-transition {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-in-out;
+   }
+
+   .page-transition.loaded {
+      opacity: 1;
+      transform: translateY(0);
+   }
+
+   /* Enhanced hover effects for animated elements */
+   .aos-animate:hover {
+      transform: translateY(-2px);
+      transition: transform 0.2s ease;
+   }
+
+   /* Smooth tab transitions */
+   .tab-content {
+      animation: fadeInContent 0.5s ease-in-out;
+   }
+
+   @keyframes fadeInContent {
+      from {
+         opacity: 0;
+         transform: translateY(20px);
+      }
+      to {
+         opacity: 1;
+         transform: translateY(0);
+      }
+   }
+
+   /* Custom pulse animation for interactive elements */
+   .pulse-on-hover:hover {
+      animation: pulse 1s infinite;
+   }
+
+   @keyframes pulse {
+      0%,
+      100% {
+         transform: scale(1);
+      }
+      50% {
+         transform: scale(1.05);
+      }
+   }
+}
