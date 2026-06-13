@@ -5,7 +5,6 @@ import { faLaptopCode, faRocket } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ReactTyped } from 'react-typed';
-import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
@@ -16,10 +15,10 @@ const Hero = () => {
             }
       };
 
-      const Navigate = useNavigate();
+      const navigate = useNavigate();
 
       const handleAboutClick = () => {
-            Navigate('/about');
+            navigate('/about');
             window.scrollTo(0, 0);
       };
 

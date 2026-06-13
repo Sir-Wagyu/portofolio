@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import './index.css'; // Import global styles
 import AOS from 'aos';
 
@@ -22,13 +22,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setDarkMode(savedTheme === 'dark');
     }
 
-    // Simulate loading
     setTimeout(() => setIsLoading(false), 1500);
   }, []);
 
@@ -42,7 +40,6 @@ function App() {
       localStorage.setItem('theme', 'light');
     }
 
-    // Refresh AOS when theme changes
     AOS.refresh();
   }, [darkMode]);
 
@@ -65,7 +62,7 @@ function App() {
 
   // Home Page Component
   const HomePage = () => (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-300 font-jakarta">
+    <>
       <Header
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
@@ -77,25 +74,41 @@ function App() {
         <Hero scrollToSection={scrollToSection} />
         <Skills />
         <Projects />
-        {/* <About /> */}
         <Contact />
       </main>
 
       <Footer scrollToSection={scrollToSection} personalInfo={personalInfo} />
+    </>
+  );
+
+  const Layout = () => (
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-300 font-jakarta">
+      <Outlet />
     </div>
   );
 
-  return (
-    <Router>
-      <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-300 font-jakarta">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />
+        },
+        {
+          path: "project/:id",
+          element: <ProjectDetail />
+        },
+        {
+          path: "about",
+          element: <About />
+        }
+      ]
+    }
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -25,7 +25,7 @@ const Projects = () => {
 
       const ProjectCard = ({ project, index }) => (
             <article
-                  className='group relative aspect-video w-full cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl focus-within:shadow-2xl transition-all'
+                  className='group relative aspect-video w-full  overflow-hidden rounded-xl shadow-md hover:shadow-2xl focus-within:shadow-2xl transition-all'
                   data-aos="fade-up"
                   data-aos-delay={index * 200}
                   tabIndex={0}
@@ -36,7 +36,7 @@ const Projects = () => {
                         alt={project.title}
                   />
                   <div
-                        className='absolute inset-0 bg-gradient-to-t from-black/0 to-transparent to-90% text-white transition-all duration-300 group-hover:bg-gradient-to-t group-focus-within:bg-gradient-to-t group-hover:from-black/60 group-focus-within:from-black/60 group-hover:transition-all group-focus-within:transition-all group-hover:duration-500 group-focus-within:duration-500'
+                        className='absolute inset-0 bg-gradient-to-t from-black/0 to-transparent to-90% text-white transition-all duration-300 group-hover:bg-gradient-to-t group-focus-within:bg-gradient-to-t group-hover:from-black/60 group-focus-within:from-black/60 group-hover:transition-all group-focus-within:transition-all group-hover:duration-500 group-focus-within:duration-500 '
                   >
                         <h2
                               className='absolute bottom-8 left-4 mr-4 m-0 font-extrabold uppercase transition-all delay-300 duration-100 ease-out group-hover:bottom-1/2 group-focus-within:bottom-1/2 group-hover:delay-0 group-focus-within:delay-0 group-hover:duration-300 group-focus-within:duration-300 px-2 py-1 backdrop-blur-sm group-hover:backdrop-blur-none group-focus-within:backdrop-blur-none bg-black/10 group-hover:bg-none group-focus-within:bg-none rounded-lg'
@@ -51,7 +51,7 @@ const Projects = () => {
 
                         <button
                               onClick={() => handleProjectClick(project.id)}
-                              className='absolute bottom-8 left-6 max-w-[80%] rounded-lg border px-4 py-2 uppercase opacity-0 transition-opacity ease-out group-hover:opacity-100 group-focus-within:opacity-100 group-hover:transition-opacity group-focus-within:transition-opacity group-hover:delay-500 group-focus-within:delay-500 group-hover:duration-300 group-focus-within:duration-300'
+                              className='absolute bottom-5 left-6 max-w-[80%] rounded-lg border px-4 py-2 uppercase opacity-0 transition-opacity ease-out group-hover:opacity-100 group-focus-within:opacity-100 group-hover:transition-opacity group-focus-within:transition-opacity group-hover:delay-500 group-focus-within:delay-500 group-hover:duration-300 group-focus-within:duration-300 cursor-pointer'
                         >
                               find out more
                         </button>

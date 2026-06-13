@@ -1,5 +1,5 @@
 import React from 'react';
-import { personalInfo, trainingsAndCertifications } from '../data/portfolioData';
+import { personalInfo, trainingsAndCertifications, experience } from '../data/portfolioData';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 
@@ -29,7 +29,7 @@ const About = () => {
                         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                               <div className=" mb-16">
                                     <h2
-                                          className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 w-max"
+                                          className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 w-max font-mono"
                                           data-aos="fade-right"
                                           data-aos-delay="200"
                                     >
@@ -87,32 +87,41 @@ const About = () => {
                                           </div>
                                     </div>
 
-                                    {/* <div className="mb-16">
-                                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Experience</h3>
+                                    <div className="mb-16">
+                                          <h3 className="font-semibold text-gray-900 dark:text-white mb-6">Work Experience</h3>
 
-                                          <div className="overflow-hidden">
-                                                <div className="overflow-x-auto">
-                                                      <table className="w-full">
-                                                            <thead>
-                                                                  <tr className="border-b border-gray-200 dark:border-gray-700">
-                                                                        <th className="text-left py-3 text-sm font-medium text-gray-700 dark:text-gray-300">Period</th>
-                                                                        <th className="text-left py-3 text-sm font-medium text-gray-700 dark:text-gray-300">Role</th>
-                                                                        <th className="text-left py-3 text-sm font-medium text-gray-700 dark:text-gray-300">Project / Company</th>
-                                                                  </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                  {experience.map((exp, index) => (
-                                                                        <tr key={index} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-200">
-                                                                              <td className="py-4 text-sm text-gray-600 dark:text-gray-400 font-medium">{exp.period}</td>
-                                                                              <td className="py-4 text-sm text-gray-900 dark:text-white font-medium">{exp.role}</td>
-                                                                              <td className="py-4 text-sm text-gray-700 dark:text-gray-300">{exp.company}</td>
-                                                                        </tr>
-                                                                  ))}
-                                                            </tbody>
-                                                      </table>
-                                                </div>
+                                          <div className="relative border-l border-gray-200 dark:border-gray-700 ml-3 md:ml-4">
+                                                {experience.map((exp, index) => (
+                                                      <div key={index} className="mb-10 ml-6 md:ml-8">
+                                                            <span className="absolute flex items-center justify-center w-3 h-3 bg-blue-600 rounded-full -left-[6.5px] ring-4 ring-white dark:ring-dark-background dark:bg-blue-500">
+                                                            </span>
+                                                            <h4 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+                                                                  {exp.role}
+                                                            </h4>
+                                                            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-3">
+                                                                  <p className="text-base font-medium text-blue-600 dark:text-blue-400">
+                                                                        {exp.company}
+                                                                  </p>
+                                                                  <span className="hidden sm:inline text-gray-400 dark:text-gray-500">•</span>
+                                                                  <span className="text-sm font-normal leading-none text-gray-500 dark:text-gray-400 mt-1 sm:mt-0">
+                                                                        {exp.period}
+                                                                  </span>
+                                                            </div>
+                                                            {exp.responsibilities ? (
+                                                                  <ul className="list-disc pl-5 space-y-2 text-base text-gray-700 dark:text-gray-300">
+                                                                        {exp.responsibilities.map((resp, idx) => (
+                                                                              <li key={idx}>{resp}</li>
+                                                                        ))}
+                                                                  </ul>
+                                                            ) : (
+                                                                  <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                                        {exp.description}
+                                                                  </p>
+                                                            )}
+                                                      </div>
+                                                ))}
                                           </div>
-                                    </div> */}
+                                    </div>
 
                                     <div className="mb-16">
                                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Training & Certifications</h3>
